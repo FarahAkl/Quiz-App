@@ -56,7 +56,6 @@ const getRandomQuestion = () => {
     questions.find(
       (cat) => cat.category.toLowerCase() === quizCategory.toLowerCase()
     ).questions || [];
-
   if (
     questionsIndexHistory.length >=
     Math.min(categoryQuestions.length, numberOfQuestion)
@@ -67,7 +66,7 @@ const getRandomQuestion = () => {
     (_, index) => !questionsIndexHistory.includes(index)
   );
   const randomQuestions =
-    availableQuestion[Math.floor(Math.random() * categoryQuestions.length)];
+    availableQuestion[Math.floor(Math.random() * availableQuestion.length)];
   questionsIndexHistory.push(categoryQuestions.indexOf(randomQuestions));
   return randomQuestions;
 };
